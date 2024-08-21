@@ -49,7 +49,7 @@ const Posts = ({ feedType, username, userId }) => {
 	}, [feedType, refetch, username]);
 
 	return (
-		<>
+		<div className="mb-12">
 			{(isLoading || isRefetching) && (
 				<div className='flex flex-col justify-center'>
 					<PostSkeleton />
@@ -67,7 +67,7 @@ const Posts = ({ feedType, username, userId }) => {
 					))}
 				</div>
 			)}
-		</>
+		</div>
 	);
 };
 export default Posts;

@@ -81,12 +81,12 @@ const ProfilePage = () => {
 				<div className='flex flex-col'>
 					{!isLoading && !isRefetching && user && (
 						<>
-							<div className='flex gap-10 px-4 py-2 items-center'>
+							<div className='flex gap-10 px-4 py-1 items-center md:h-14 h-12'>
 								<Link to='/'>
 									<FaArrowLeft className='w-4 h-4' />
 								</Link>
 								<div className='flex flex-col'>
-									<p className='font-bold text-lg'>{user?.fullName}</p>
+									<p className='font-bold text-lg'>{user?.fullname}</p>
 									<span className='text-sm text-slate-500'>{POSTS?.length} posts</span>
 								</div>
 							</div>
@@ -94,7 +94,7 @@ const ProfilePage = () => {
 							<div className='relative group/cover'>
 								<img
 									src={coverImg || user?.coverImg || "/cover.png"}
-									className='h-52 w-full object-cover'
+									className='h-48 w-full object-cover'
 									alt='cover image'
 								/>
 								{isMyProfile && (
@@ -122,7 +122,7 @@ const ProfilePage = () => {
 								/>
 								{/* USER AVATAR */}
 								<div className='avatar absolute -bottom-16 left-4'>
-									<div className='w-32 rounded-full relative group/avatar'>
+									<div className='w-28 rounded-full relative group/avatar'>
 										<img src={profileImg || user?.profileImg || "/avatar-placeholder.png"} />
 										<div className='absolute top-5 right-3 p-1 bg-primary rounded-full group-hover/avatar:opacity-100 opacity-0 cursor-pointer'>
 											{isMyProfile && (

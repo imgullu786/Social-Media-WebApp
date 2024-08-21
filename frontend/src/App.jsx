@@ -1,13 +1,15 @@
+import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import HomePage from './pages/home/HomePage'
 import SignUpPage from './pages/auth/SignUpPage'
 import LoginPage from './pages/auth/LoginPage'
 import SideBar from './components/common/Sidebar'
-import './App.css'
+import BottomBar from './components/common/Bottombar'
 import RightPanel from './components/common/RightPanel'
 import NotificationPage from './pages/notification/NotificationPage'
+import ExplorePage from './pages/explore/ExplorePage'
 import ProfilePage from './pages/profile/ProfilePage'
-import toast, { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import {useQuery} from '@tanstack/react-query'
 import LoadingSpinner from './components/common/LoadingSpinner'
 function App() {
@@ -38,11 +40,13 @@ function App() {
   return (
     <div className='flex max-w-6xl mx-auto'>
 		{authUser && <SideBar/>}
+		{authUser && <BottomBar/>}
 		<Routes>
 			<Route path='/' element={authUser? <HomePage/> : <Navigate to='/login'/> }/>
 			<Route path='/signup' element={!authUser? <SignUpPage />: <Navigate to='/'/>} />
 			<Route path='/login' element={!authUser? <LoginPage />: <Navigate to='/'/> } />
 			<Route path='/notifications' element={authUser? <NotificationPage/> : <Navigate to='/login'/>} />
+			<Route path='/explore' element={authUser? <ExplorePage/> : <Navigate to='/login'/>} />
 			<Route path='/profile/:username' element={authUser? <ProfilePage/> : <Navigate to='/login'/>} />
 			<Route path='*' element={<h1>Not Found</h1>} />
 		</Routes>
