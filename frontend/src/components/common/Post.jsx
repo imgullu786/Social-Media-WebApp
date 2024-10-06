@@ -56,11 +56,11 @@ const Post = ({ post }) => {
       }
     },
     onSuccess: (updatedLikes) => {
-      if (isLiked) {
-        toast.success("Post unliked successfully");
-      } else {
-        toast.success("Post liked successfully");
-      }
+      // if (isLiked) {
+      //   toast.success("Post unliked successfully");
+      // } else {
+      //   toast.success("Post liked successfully");
+      // }
       // refreshing all posts if bad idea, we can just update the only post that was liked in like unlike controllers at backend then setQueryData here
       queryClient.setQueryData(["posts"], (oldPosts) => {
         return oldPosts.map((oldPost) => {
@@ -101,7 +101,7 @@ const Post = ({ post }) => {
     },
     onSuccess: (posts) => {
       setComment("");
-      toast.success("Comment posted successfully");
+      // toast.success("Comment posted successfully");
       // queryClient.invalidateQueries({queryKey: ['posts']});
       // refreshing all posts if bad idea, we can just update the only post that was commented bt setQueryData
       queryClient.setQueryData(["posts"], (oldPosts) => {

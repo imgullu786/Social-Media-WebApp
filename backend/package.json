@@ -1,11 +1,11 @@
 {
-  "name": "social-media-web-app",
+  "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon backend/server.js",
-    "start": "NODE_ENV=production node backend/server.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "NODE_ENV=development nodemon server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "npm install && cd .. && cd frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
